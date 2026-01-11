@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Info Monitor</title>
+    <meta http-equiv="refresh" content="2">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; margin-bottom: 30px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f1f1; }
+        .status { margin: 20px 0; padding: 10px; background: #e8f5e8; border-radius: 4px; }
+        .timestamp { color: #666; font-size: 0.9em; text-align: right; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Android System Information Monitor</h1>
+
+        <div class="status">
+            <strong>Status:</strong> Active |
+            <strong>Total Records:</strong> <span id="recordCount">0</span> |
+            <strong>Auto-refresh:</strong> every 2 seconds
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>OS Version</th>
+                    <th>SDK Version</th>
+                    <th>Free Memory (MB)</th>
+                    <th>Battery Level (%)</th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+                <tr><td colspan="5" style="text-align:center;">Loading...</td></tr>
+            </tbody>
+        </table>
+
+        <div class="timestamp">
+            Last update: <span id="lastUpdate">--:--:--</span>
+        </div>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch("/data");
+                const json = await response.json();
+
+                const tbody = document.getElementById("data-table");
+                let html = "";
+
+                if (json.length === 0) {
+                    html = `<tr><td colspan="5" style="text-align:center;">No data</td></tr>`;
+                } else {
+                    json.forEach(record => {
+                        html += `
+                        <tr>
+                            <td>${record.formatted_time}</td>
+                            <td>${record.os_version}</td>
+                            <td>${record.sdk_version}</td>
+                            <td>${record.free_memory_mb}</td>
+                            <td>${record.battery_level}</td>
+                        </tr>`;
+                    });
+                }
+
+                tbody.innerHTML = html;
+
+                document.getElementById("recordCount").textContent = json.length;
+                document.getElementById("lastUpdate").textContent = new Date().toLocaleTimeString();
+
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        loadData();
+        setInterval(loadData, 2000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/purpleLight"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnBack"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purplePrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editResource"
+        android:hint="Website"
+        android:textColor="@color/purplePrimaryDark"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editLogin"
+        android:hint="Login"
+        android:textColor="@color/purplePrimaryDark"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:hint="PWD"
+        android:textColor="@color/purplePrimaryDark"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editNotes"
+        android:hint="Note"
+        android:textColor="@color/purplePrimaryDark"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:text="Add record"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnExport"
+        android:text="Export data"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnImport"
+        android:text="Import data"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="16dp"/>
+
+</LinearLayout>

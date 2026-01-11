@@ -1,0 +1,40 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/purpleLight"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/editResource"
+        android:hint="Website"
+        android:textColor="@color/purplePrimaryDark"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editLogin"
+        android:hint="Login"
+        android:textColor="@color/purplePrimaryDark"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:hint="PWD"
+        android:textColor="@color/purplePrimaryDark"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editNotes"
+        android:hint="Note"
+        android:textColor="@color/purplePrimaryDark"
+        android:backgroundTint="@color/purplePrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
